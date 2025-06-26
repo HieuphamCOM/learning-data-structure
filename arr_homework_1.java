@@ -5,3 +5,17 @@
 
 // a/  Loop over the array, add the element of the array into the HashSet
 // b/ If the element is already in the HashSet, print it as a replicated element
+
+import java.util.HashSet;
+public class findReplicate{
+    public static void main(String[]args){
+        int []arr = {1, 2, 3, 4, 2, 5, 6, 3};
+        HashSet<Integer> arr1 = new HashSet<>();
+
+        for(int element : arr){
+            if(!arr1.add(element)){
+                System.out.println(element);
+            }
+        }
+    }
+ } 
