@@ -21,6 +21,7 @@ public class linkedListEx3{
         exLinkedList.append(30);
         exLinkedList.append(20);
         exLinkedList.deleteNode(10);
+        exLinkedList.deleteNode(20);
         exLinkedList.printLinkedList();
     }
 }

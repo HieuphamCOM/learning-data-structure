@@ -30,3 +30,37 @@
 //          return the peek element of the stack with deleting it
 // publi boolean isEmpty()
 //          return true if the Stack is empty, else if the stack is not empty
+
+class Stack{
+    int top, cap;
+    int[]a;
+
+    public Stack(int cap){
+        this.cap = cap;
+        top = -1;
+        a  = new int[cap];
+    }
+
+    public void push(String name){
+        if(top >= cap - 1){
+            System.out.println("Stack overflow");
+        }
+        a[++top] = String name;
+
+    }
+    public String pop(){
+        if(top < 0){
+            System.out.println("Stack overflow");
+        }
+        return a[top--];
+    }
+    public String peek(){
+        if(top < 0){
+            System.out.println("Stack is Empty");
+        }
+        return a[top];
+    }
+    public boolean isEmpty(){
+        return top < 0;
+    }
+}

@@ -24,3 +24,5 @@
 
 // if the list does not have a Cycle
 //  fastPointer or fastPointer.next reaches "null"
+
+public class linkedListE
