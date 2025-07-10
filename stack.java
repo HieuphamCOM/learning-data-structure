@@ -31,36 +31,95 @@
 // publi boolean isEmpty()
 //          return true if the Stack is empty, else if the stack is not empty
 
-class Stack{
-    int top, cap;
-    int[]a;
 
-    public Stack(int cap){
-        this.cap = cap;
-        top = -1;
-        a  = new int[cap];
-    }
 
-    public void push(String name){
-        if(top >= cap - 1){
-            System.out.println("Stack overflow");
-        }
-        a[++top] = String name;
+// Linked list
+// "vat-ly" -> null
+//   head
+// "vat-ly" -> "ngu-van" -> null
 
-    }
-    public String pop(){
-        if(top < 0){
-            System.out.println("Stack overflow");
-        }
-        return a[top--];
-    }
-    public String peek(){
-        if(top < 0){
-            System.out.println("Stack is Empty");
-        }
-        return a[top];
-    }
-    public boolean isEmpty(){
-        return top < 0;
+// Stack - First In Last Out
+// "vat-ly" -> null
+//   head
+// "ngu-van" -> "vat-ly" -> null
+//   head
+public class linkedListEx4{
+    public static void main(String[]args){
+        stack ex4List = new stack();
+        ex4List.push("10");
+        ex4List.push("20");
+        ex4List.push("30");
+        ex4List.push("40");
+        ex4List.popString();
+        System.out.println(ex4List.peek());
+        System.out.println(ex4List.isEmpty());
+        //ex4List.printLinkedList();
+        //System.out.println(ex4List.head.dataString);
+        
     }
 }
+class Node{
+    String dataString;
+    Node nextNode;
+
+    public Node(String dataString){
+        this.dataString = dataString;
+        this.nextNode = null;
+    }
+}
+class stack{
+        Node head;
+
+        public stack(){
+            this.head = null;
+        }
+
+    public void push(String data){
+            Node newNode = new Node(data);
+            if(this.head ==  null){
+                this.head = newNode;
+                return;
+            }
+
+            
+            Node aNode = this.head;
+            newNode.nextNode = aNode;
+            this.head = newNode;
+            
+    } 
+    public String popString(){
+            if(this.head == null){
+                System.out.println("The stack is empty");
+                return null;
+            }
+            String popString2 = this.head.dataString;
+            this.head = this.head.nextNode;
+            return popString2;
+        }
+
+    public String peek(){
+        if(this.head == null){
+            System.out.println("The stack is empty");
+            return null;
+        }
+        return this.head.dataString;
+    }
+    
+    public boolean isEmpty(){
+        return this.head == null;
+    }
+       
+
+    public  void printLinkedList(){
+            Node curNode = this.head;
+            while(curNode != null){
+            System.out.println(curNode.dataString);
+            curNode = curNode.nextNode;
+        }
+    }
+}      
+
+
+
+
+
